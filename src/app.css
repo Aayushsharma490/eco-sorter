@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: 'DM Sans Variable', sans-serif;
+	@apply bg-white text-gray-900;
+}
+
+.glass-container {
+	position: relative;
+}
+
+.glass-container::before {
+	@apply absolute -inset-[10px] -z-10 rounded-xl border border-emerald-200/50 bg-white/80 backdrop-blur-md shadow-lg;
+	content: '';
+}
+
+.signal-line {
+	--rotation: 90deg;
+	@apply h-[20px] w-[1.5px] bg-gradient-to-t md:h-[1.5px] md:w-[30px] lg:w-[40px] xl:w-[50px];
+	background-color: hsla(0, 0%, 0%, 0.1);
+	background-image: linear-gradient(
+		var(--rotation),
+		rgba(16, 185, 129, 0) 50%,
+		#10b981 50%,
+		rgba(16, 185, 129, 0) 70%
+	);
+	background-size: 500% 500%;
+}
+
+@media (max-width: 767px) {
+	.signal-line {
+		--rotation: 0deg;
+	}
+}
+
+/* Eco Sorter Custom Styles */
+.eco-gradient {
+	background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+}
+
+.eco-glow {
+	box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+}
+
+.particle-bg {
+	background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+}
+
+@keyframes float {
+	0%, 100% { transform: translateY(0px); }
+	50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+	animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+	0%, 100% { opacity: 0.5; }
+	50% { opacity: 1; }
+}
+
+.pulse-glow {
+	animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Light theme overrides */
+.text-light {
+	@apply text-gray-900;
+}
+
+.bg-light {
+	@apply bg-white;
+}
