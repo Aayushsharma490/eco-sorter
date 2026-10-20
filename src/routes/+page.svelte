@@ -1,28 +1,15 @@
 <script>
-	import Hero from '$lib/slices/Hero/index.svelte';
-	import JourneySteps from '$lib/slices/JourneySteps/index.svelte';
-	import WhyEcoSorter from '$lib/slices/WhyEcoSorter/index.svelte';
-	import RewardsSection from '$lib/slices/RewardsSection/index.svelte';
-	import RecyclingPoints from '$lib/slices/RecyclingPoints/index.svelte';
-	import FAQSection from '$lib/slices/FAQSection/index.svelte';
-	import PartnersSection from '$lib/slices/PartnersSection/index.svelte';
+	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 
-	// Mock slice data for static rendering
-	const heroSlice = {
-		slice_type: 'hero',
-		variation: 'default'
-	};
+	onMount(() => {
+		goto('/landing');
+	});
 </script>
 
-<svelte:head>
-	<title>Eco Sorter - Revolutionize Plastic Waste Management</title>
-	<meta name="description" content="Streamline plastic collection process, connecting users, pickup executives, and collection centers for a cleaner tomorrow." />
-</svelte:head>
-
-<Hero slice={heroSlice} />
-<JourneySteps />
-<WhyEcoSorter />
-<RewardsSection />
-<RecyclingPoints />
-<FAQSection />
-<PartnersSection />
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 to-green-50">
+	<div class="text-center">
+		<div class="animate-spin rounded-full h-16 w-16 border-b-4 border-emerald-600 mx-auto mb-4"></div>
+		<p class="text-gray-600 font-medium">Loading Eco Sorter...</p>
+	</div>
+</div>
